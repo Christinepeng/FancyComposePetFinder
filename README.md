@@ -28,4 +28,60 @@ FancyComposePetFinder is a Jetpack Compose sample application that demonstrates 
      - [Picasso](https://github.com/square/picasso)
 
 ---
+## Project Structure
 
+Below is a sample structure to highlight key files. This may vary based on your implementation:
+
+FancyComposePetFinder/ ┣ app/ ┃ ┣ src/main/java/com/example/petfinder/ ┃ ┃ ┣ MainActivity.kt ┃ ┃ ┣ ui/ ┃ ┃ ┃ ┣ PetListScreen.kt # List/Grid of pet items ┃ ┃ ┃ ┣ PetDetailScreen.kt # Full-screen or dialog for item details ┃ ┃ ┃ ┗ components/ # Reusable composables ┃ ┃ ┣ data/ ┃ ┃ ┃ ┣ model/ ┃ ┃ ┃ ┃ ┗ Pet.kt # Pet data class ┃ ┃ ┃ ┣ repository/ ┃ ┃ ┃ ┃ ┗ PetRepository.kt # Fetches data from an API or mock sources ┃ ┃ ┃ ┗ network/ ┃ ┃ ┃ ┃ ┗ ApiService.kt # Networking logic (Retrofit, etc.) ┃ ┗ build.gradle ┣ build.gradle ┣ settings.gradle ┗
+
+
+1. **`ui`** folder: Holds all Composable functions, including screens and reusable UI components.
+2. **`data`** folder: Contains models, repository classes, and API or network logic.
+3. **`MainActivity.kt`**: Entry point for the Compose UI, sets the application content.
+
+---
+
+## Usage Example
+
+Below is a minimal snippet demonstrating how you might load an image with **Coil** inside a `LazyColumn`:
+
+```kotlin
+@Composable
+fun PetListScreen(pets: List<Pet>) {
+    LazyColumn {
+        items(pets) { pet ->
+            PetListItem(pet)
+        }
+    }
+}
+
+@Composable
+fun PetListItem(pet: Pet) {
+    Card(
+        modifier = Modifier
+            .padding(8.dp)
+            .fillMaxWidth(),
+        elevation = 2.dp
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            AsyncImage(
+                model = pet.imageUrl,
+                contentDescription = pet.name,
+                modifier = Modifier
+                    .size(80.dp)
+                    .clip(RoundedCornerShape(8.dp)),
+                placeholder = painterResource(R.drawable.placeholder),
+                error = painterResource(R.drawable.error_image),
+                contentScale = ContentScale.Crop
+            )
+            Spacer(modifier = Modifier.width(8.dp))
+            Text(
+                text = pet.name,
+                style = MaterialTheme.typography.body1,
+                modifier = Modifier.padding(8.dp)
+            )
+        }
+    }
+}
