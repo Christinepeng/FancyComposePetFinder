@@ -32,8 +32,9 @@ FancyComposePetFinder is a Jetpack Compose sample application that demonstrates 
 
 Below is a sample structure to highlight key files. This may vary based on your implementation:
 
+``` 
 FancyComposePetFinder/ ┣ app/ ┃ ┣ src/main/java/com/example/petfinder/ ┃ ┃ ┣ MainActivity.kt ┃ ┃ ┣ ui/ ┃ ┃ ┃ ┣ PetListScreen.kt # List/Grid of pet items ┃ ┃ ┃ ┣ PetDetailScreen.kt # Full-screen or dialog for item details ┃ ┃ ┃ ┗ components/ # Reusable composables ┃ ┃ ┣ data/ ┃ ┃ ┃ ┣ model/ ┃ ┃ ┃ ┃ ┗ Pet.kt # Pet data class ┃ ┃ ┃ ┣ repository/ ┃ ┃ ┃ ┃ ┗ PetRepository.kt # Fetches data from an API or mock sources ┃ ┃ ┃ ┗ network/ ┃ ┃ ┃ ┃ ┗ ApiService.kt # Networking logic (Retrofit, etc.) ┃ ┗ build.gradle ┣ build.gradle ┣ settings.gradle ┗
-
+``` 
 
 1. **`ui`** folder: Holds all Composable functions, including screens and reusable UI components.
 2. **`data`** folder: Contains models, repository classes, and API or network logic.
