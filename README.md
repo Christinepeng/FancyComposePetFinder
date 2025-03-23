@@ -35,13 +35,20 @@ Below is a sample structure to highlight key files. This may vary based on your 
 ``` 
 FancyComposePetFinder/
 |-- app/
-|   |-- src/main/java/com/example/petfinder/
-|   |   |-- MainActivity.kt
-|   |   |-- ui/
-|   |   |   |-- PetListScreen.kt
-|   |   |   `-- PetDetailScreen.kt
-|   |-- data/
-|   `-- build.gradle
+| |-- src/main/java/com/example/petfinder/
+| | |-- MainActivity.kt
+| | |-- ui/
+| | | |-- PetListScreen.kt       # List/Grid of pet items
+| | | |-- PetDetailScreen.kt     # Full-screen or dialog for item details
+| | | `-- components/            # Reusable composables
+| | |-- data/
+| | | |-- model/
+| | | | `-- Pet.kt               # Pet data class
+| | | |-- repository/
+| | | | `-- PetRepository.kt     # Fetches data from an API or mock sources
+| | | `-- network/
+| | | | `-- ApiService.kt        # Networking logic (Retrofit, etc.)
+| `-- build.gradle
 |-- build.gradle
 |-- settings.gradle
 `-- README.md
