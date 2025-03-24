@@ -22,15 +22,24 @@ class MainActivity : ComponentActivity() {
         setContent {
             FancyComposePetFinderTheme {
                 val samplePets = listOf(
-                    Pet("Fluffy", "", "Fluffy description"),
-                    Pet("Bella", "", "Bella description"),
-                    Pet("Max", "", "Max description"),
-                    Pet("Fluffy1", "", "Fluffy description"),
-                    Pet("Bella1", "", "Bella description"),
-                    Pet("Max1", "", "Max description"),
-                    Pet("Fluffy2", "", "Fluffy description"),
-                    Pet("Bella2", "", "Bella description"),
-                    Pet("Max2", "", "Max description")
+                    Pet("Fluffy", "", 0, 0),
+                    Pet("Fluffy", "", 0, 0),
+                    Pet("Fluffy", "", 0, 0),
+                    Pet("Fluffy", "", 0, 0),
+                    Pet("Fluffy", "", 0, 0),
+                    Pet("Fluffy", "", 0, 0),
+                    Pet("Fluffy", "", 0, 0),
+                    Pet("Fluffy", "", 0, 0),
+                    Pet("Fluffy", "", 0, 0),
+                    Pet("Fluffy", "", 0, 0),
+                    Pet("Fluffy", "", 0, 0),
+                    Pet("Fluffy", "", 0, 0),
+                    Pet("Fluffy", "", 0, 0),
+                    Pet("Fluffy", "", 0, 0),
+                    Pet("Fluffy", "", 0, 0),
+                    Pet("Fluffy", "", 0, 0),
+                    Pet("Fluffy", "", 0, 0),
+                    Pet("Fluffy", "", 0, 0)
                 )
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     PetListScreen(pets = samplePets, Modifier.padding(innerPadding)                    )
@@ -46,15 +55,24 @@ fun GreetingPreview() {
     FancyComposePetFinderTheme {
         PetListScreen(
             pets = listOf(
-                Pet("Fluffy", "", "Fluffy description"),
-                Pet("Bella", "", "Bella description"),
-                Pet("Max", "", "Max description"),
-                Pet("Fluffy1", "", "Fluffy description"),
-                Pet("Bella1", "", "Bella description"),
-                Pet("Max1", "", "Max description"),
-                Pet("Fluffy2", "", "Fluffy description"),
-                Pet("Bella2", "", "Bella description"),
-                Pet("Max2", "", "Max description")
+                Pet("Fluffy", "", 0, 0),
+                Pet("Fluffy", "", 0, 0),
+                Pet("Fluffy", "", 0, 0),
+                Pet("Fluffy", "", 0, 0),
+                Pet("Fluffy", "", 0, 0),
+                Pet("Fluffy", "", 0, 0),
+                Pet("Fluffy", "", 0, 0),
+                Pet("Fluffy", "", 0, 0),
+                Pet("Fluffy", "", 0, 0),
+                Pet("Fluffy", "", 0, 0),
+                Pet("Fluffy", "", 0, 0),
+                Pet("Fluffy", "", 0, 0),
+                Pet("Fluffy", "", 0, 0),
+                Pet("Fluffy", "", 0, 0),
+                Pet("Fluffy", "", 0, 0),
+                Pet("Fluffy", "", 0, 0),
+                Pet("Fluffy", "", 0, 0),
+                Pet("Fluffy", "", 0, 0)
             ), padding = androidx.compose.ui.Modifier.Companion.padding()
         )
     }

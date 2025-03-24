@@ -58,5 +58,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     implementation("io.coil-kt.coil3:coil-compose:3.1.0")
+    implementation ("com.squareup.retrofit2:retrofit:2.11.0")
+
 
 }

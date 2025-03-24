@@ -46,8 +46,8 @@ fun PetListItem(pet: Pet) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             AsyncImage(
-                model = pet.imageUrl,
-                contentDescription = pet.name,
+                model = pet.url,
+                contentDescription = pet.id,
                 modifier = Modifier
                     .size(80.dp)
                     .clip(RoundedCornerShape(8.dp)),
@@ -57,7 +57,7 @@ fun PetListItem(pet: Pet) {
             )
             Spacer(modifier = Modifier.width(8.dp))
             Text(
-                text = pet.name,
+                text = pet.id,
                 style = MaterialTheme.typography.bodyLarge,
                 modifier = Modifier.padding(8.dp)
             )
