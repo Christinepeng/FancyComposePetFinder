@@ -25,6 +25,12 @@ class MainActivity : ComponentActivity() {
                     Pet("Fluffy"),
                     Pet("Bella"),
                     Pet("Max"),
+                    Pet("Fluffy1"),
+                    Pet("Bella1"),
+                    Pet("Max1"),
+                    Pet("Fluffy2"),
+                    Pet("Bella2"),
+                    Pet("Max2"),
                 )
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     PetListScreen(pets = samplePets, Modifier.padding(innerPadding)                    )

@@ -18,13 +18,16 @@ import coil3.compose.AsyncImage
 import com.example.fancycomposepetfinder.data.model.Pet
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.width
+import androidx.compose.material3.CardDefaults
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.res.painterResource
 import com.example.fancycomposepetfinder.R
+import androidx.compose.foundation.layout.size
+
 
 @Composable
 fun PetListScreen(pets: List<Pet>, padding: Modifier) {
-    LazyColumn {
+    LazyColumn(modifier = Modifier.padding(8.dp, 48.dp, 8.dp, 8.dp)) {
         items(pets) { pet ->
             PetListItem(pet)
         }
@@ -37,7 +40,7 @@ fun PetListItem(pet: Pet) {
         modifier = Modifier
             .padding(8.dp)
             .fillMaxWidth(),
-//        elevation = 2.dp
+        elevation = CardDefaults. cardElevation(6.dp)
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically
@@ -47,7 +50,7 @@ fun PetListItem(pet: Pet) {
 //                model = pet.imageUrl,
                 contentDescription = pet.name,
                 modifier = Modifier
-//                    .size(80.dp)
+                    .size(80.dp)
                     .clip(RoundedCornerShape(8.dp)),
                 placeholder = painterResource(R.drawable.loading_spinner),
                 error = painterResource(R.drawable.error_image),
@@ -57,7 +60,6 @@ fun PetListItem(pet: Pet) {
             Text(
                 text = pet.name,
                 style = MaterialTheme.typography.bodyLarge,
-//                style = MaterialTheme.typography.body1,
                 modifier = Modifier.padding(8.dp)
             )
         }
