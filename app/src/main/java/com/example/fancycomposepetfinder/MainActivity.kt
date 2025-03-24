@@ -22,15 +22,15 @@ class MainActivity : ComponentActivity() {
         setContent {
             FancyComposePetFinderTheme {
                 val samplePets = listOf(
-                    Pet("Fluffy"),
-                    Pet("Bella"),
-                    Pet("Max"),
-                    Pet("Fluffy1"),
-                    Pet("Bella1"),
-                    Pet("Max1"),
-                    Pet("Fluffy2"),
-                    Pet("Bella2"),
-                    Pet("Max2"),
+                    Pet("Fluffy", "", "Fluffy description"),
+                    Pet("Bella", "", "Bella description"),
+                    Pet("Max", "", "Max description"),
+                    Pet("Fluffy1", "", "Fluffy description"),
+                    Pet("Bella1", "", "Bella description"),
+                    Pet("Max1", "", "Max description"),
+                    Pet("Fluffy2", "", "Fluffy description"),
+                    Pet("Bella2", "", "Bella description"),
+                    Pet("Max2", "", "Max description")
                 )
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     PetListScreen(pets = samplePets, Modifier.padding(innerPadding)                    )
@@ -46,8 +46,15 @@ fun GreetingPreview() {
     FancyComposePetFinderTheme {
         PetListScreen(
             pets = listOf(
-                Pet("Preview Pet 1"),
-                Pet("Preview Pet 2")
+                Pet("Fluffy", "", "Fluffy description"),
+                Pet("Bella", "", "Bella description"),
+                Pet("Max", "", "Max description"),
+                Pet("Fluffy1", "", "Fluffy description"),
+                Pet("Bella1", "", "Bella description"),
+                Pet("Max1", "", "Max description"),
+                Pet("Fluffy2", "", "Fluffy description"),
+                Pet("Bella2", "", "Bella description"),
+                Pet("Max2", "", "Max description")
             ), padding = androidx.compose.ui.Modifier.Companion.padding()
         )
     }

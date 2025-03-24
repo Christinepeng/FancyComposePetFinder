@@ -46,8 +46,7 @@ fun PetListItem(pet: Pet) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             AsyncImage(
-                model = "",
-//                model = pet.imageUrl,
+                model = pet.imageUrl,
                 contentDescription = pet.name,
                 modifier = Modifier
                     .size(80.dp)
