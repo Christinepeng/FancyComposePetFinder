@@ -11,6 +11,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.fancycomposepetfinder.data.model.Pet
+import com.example.fancycomposepetfinder.ui.PetListScreen
 import com.example.fancycomposepetfinder.ui.theme.FancyComposePetFinderTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,11 +21,13 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             FancyComposePetFinderTheme {
+                val samplePets = listOf(
+                    Pet("Fluffy"),
+                    Pet("Bella"),
+                    Pet("Max"),
+                )
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                    PetListScreen(pets = samplePets, Modifier.padding(innerPadding)                    )
                 }
             }
         }
@@ -42,6 +46,11 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     FancyComposePetFinderTheme {
-        Greeting("Android")
+        PetListScreen(
+            pets = listOf(
+                Pet("Preview Pet 1"),
+                Pet("Preview Pet 2")
+            ), padding = androidx.compose.ui.Modifier.Companion.padding()
+        )
     }
 }
