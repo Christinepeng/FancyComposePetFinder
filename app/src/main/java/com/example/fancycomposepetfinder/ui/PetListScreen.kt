@@ -19,6 +19,8 @@ import com.example.fancycomposepetfinder.data.model.Pet
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.width
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.res.painterResource
+import com.example.fancycomposepetfinder.R
 
 @Composable
 fun PetListScreen(pets: List<Pet>, padding: Modifier) {
@@ -47,8 +49,8 @@ fun PetListItem(pet: Pet) {
                 modifier = Modifier
 //                    .size(80.dp)
                     .clip(RoundedCornerShape(8.dp)),
-//                placeholder = painterResource(R.drawable.placeholder),
-//                error = painterResource(R.drawable.error_image),
+                placeholder = painterResource(R.drawable.loading_spinner),
+                error = painterResource(R.drawable.error_image),
                 contentScale = ContentScale.Crop
             )
             Spacer(modifier = Modifier.width(8.dp))
