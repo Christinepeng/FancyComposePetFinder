@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
-import coil3.compose.AsyncImage
+import coil.compose.AsyncImage
 import com.example.fancycomposepetfinder.data.model.Pet
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.width
@@ -34,6 +34,7 @@ fun PetListScreen(petViewModel: PetViewModel, padding: Modifier) {
 
     LaunchedEffect(Unit) {
         petViewModel.loadRandomPets()
+        println("pets = ${pets}")
     }
 
     LazyColumn(modifier = Modifier.padding(8.dp, 48.dp, 8.dp, 8.dp)) {

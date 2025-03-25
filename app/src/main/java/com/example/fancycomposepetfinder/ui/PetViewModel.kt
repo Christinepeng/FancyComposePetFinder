@@ -1,5 +1,6 @@
 package com.example.fancycomposepetfinder.ui
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
@@ -17,6 +18,7 @@ class PetViewModel(private val repository: PetRepository): ViewModel() {
         viewModelScope.launch {
             try {
                 val item = repository.fetchRandomPets()
+                Log.d("PetViewModel", "Fetched pets = $pets")
                 _pets.value = item
             } catch (e: Exception) {
                 e.printStackTrace()
