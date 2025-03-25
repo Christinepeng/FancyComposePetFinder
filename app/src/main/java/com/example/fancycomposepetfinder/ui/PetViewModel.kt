@@ -18,7 +18,7 @@ class PetViewModel(private val repository: PetRepository): ViewModel() {
         viewModelScope.launch {
             try {
                 val item = repository.fetchRandomPets()
-                Log.d("PetViewModel", "Fetched pets = $pets")
+//                Log.d("PetViewModel", "Fetched pets = $pets")
                 _pets.value = item
             } catch (e: Exception) {
                 e.printStackTrace()

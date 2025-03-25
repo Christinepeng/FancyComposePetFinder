@@ -33,8 +33,10 @@ fun PetListScreen(petViewModel: PetViewModel, padding: Modifier) {
     val pets by petViewModel.pets.collectAsState()
 
     LaunchedEffect(Unit) {
-        petViewModel.loadRandomPets()
-        println("pets = ${pets}")
+        if (pets.isEmpty()) {
+            petViewModel.loadRandomPets()  // 只在「首次進入」時抓資料
+            //        println("pets = ${pets}")
+        }
     }
 
     LazyColumn(modifier = Modifier.padding(8.dp, 48.dp, 8.dp, 8.dp)) {
