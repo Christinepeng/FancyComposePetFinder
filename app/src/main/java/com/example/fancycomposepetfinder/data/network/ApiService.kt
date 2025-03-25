@@ -6,9 +6,9 @@ import retrofit2.http.Query
 
 interface ApiService {
     @GET("v1/images/search")
-    suspend fun get100RandomPets(  // get 100 random pets images
+    suspend fun getRandomPets(  // get 10 random pets images
 //        @Query("api_key") apiKey: String,
-        @Query("limit") limit: Int = 100
+        @Query("limit") limit: Int = 10
     ): List<Pet>
 }
 
