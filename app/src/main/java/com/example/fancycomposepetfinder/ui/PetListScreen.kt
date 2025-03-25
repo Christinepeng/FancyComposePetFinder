@@ -1,5 +1,6 @@
 package com.example.fancycomposepetfinder.ui
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -26,6 +27,10 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 
 
 @Composable
@@ -48,10 +53,18 @@ fun PetListScreen(petViewModel: PetViewModel, padding: Modifier) {
 
 @Composable
 fun PetListItem(pet: Pet) {
+    // 用 remember 建立一個狀態，控制 Dialog 是否顯示
+    var showDialog by rememberSaveable { mutableStateOf(false) }
+
+    // 當 showDialog 為 true 時，就顯示 PetDetailDialog
+    if (showDialog) {
+        PetDetailDialog(pet = pet, onDismiss = { showDialog = false }, pet.url)
+    }
     Card(
         modifier = Modifier
             .padding(8.dp)
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .clickable { showDialog = true  },
         elevation = CardDefaults. cardElevation(6.dp)
     ) {
         Row(

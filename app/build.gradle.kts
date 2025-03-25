@@ -67,5 +67,4 @@ dependencies {
     implementation ("com.squareup.okhttp3:okhttp:4.12.0")
     // log 攔截器（如果需要 log）
     implementation ("com.squareup.okhttp3:logging-interceptor:4.12.0")
-
 }
