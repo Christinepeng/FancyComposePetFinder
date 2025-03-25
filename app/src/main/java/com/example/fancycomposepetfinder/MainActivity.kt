@@ -11,69 +11,31 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.ViewModelProvider
 import com.example.fancycomposepetfinder.data.model.Pet
+import com.example.fancycomposepetfinder.data.network.ApiClient
+import com.example.fancycomposepetfinder.data.network.ApiService
+import com.example.fancycomposepetfinder.data.repository.PetRepository
 import com.example.fancycomposepetfinder.ui.PetListScreen
+import com.example.fancycomposepetfinder.ui.PetViewModel
+import com.example.fancycomposepetfinder.ui.PetViewModelFactory
 import com.example.fancycomposepetfinder.ui.theme.FancyComposePetFinderTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val repository = PetRepository(ApiClient.apiService)
+        val viewModelFactory = PetViewModelFactory(repository)
+        val petViewModel = ViewModelProvider(this, viewModelFactory).get(PetViewModel::class.java)
+
         enableEdgeToEdge()
         setContent {
             FancyComposePetFinderTheme {
-                val samplePets = listOf(
-                    Pet("Fluffy", "", 0, 0),
-                    Pet("Fluffy", "", 0, 0),
-                    Pet("Fluffy", "", 0, 0),
-                    Pet("Fluffy", "", 0, 0),
-                    Pet("Fluffy", "", 0, 0),
-                    Pet("Fluffy", "", 0, 0),
-                    Pet("Fluffy", "", 0, 0),
-                    Pet("Fluffy", "", 0, 0),
-                    Pet("Fluffy", "", 0, 0),
-                    Pet("Fluffy", "", 0, 0),
-                    Pet("Fluffy", "", 0, 0),
-                    Pet("Fluffy", "", 0, 0),
-                    Pet("Fluffy", "", 0, 0),
-                    Pet("Fluffy", "", 0, 0),
-                    Pet("Fluffy", "", 0, 0),
-                    Pet("Fluffy", "", 0, 0),
-                    Pet("Fluffy", "", 0, 0),
-                    Pet("Fluffy", "", 0, 0)
-                )
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    PetListScreen(pets = samplePets, Modifier.padding(innerPadding)                    )
+                    PetListScreen(petViewModel, Modifier.padding(innerPadding)                    )
                 }
             }
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    FancyComposePetFinderTheme {
-        PetListScreen(
-            pets = listOf(
-                Pet("Fluffy", "", 0, 0),
-                Pet("Fluffy", "", 0, 0),
-                Pet("Fluffy", "", 0, 0),
-                Pet("Fluffy", "", 0, 0),
-                Pet("Fluffy", "", 0, 0),
-                Pet("Fluffy", "", 0, 0),
-                Pet("Fluffy", "", 0, 0),
-                Pet("Fluffy", "", 0, 0),
-                Pet("Fluffy", "", 0, 0),
-                Pet("Fluffy", "", 0, 0),
-                Pet("Fluffy", "", 0, 0),
-                Pet("Fluffy", "", 0, 0),
-                Pet("Fluffy", "", 0, 0),
-                Pet("Fluffy", "", 0, 0),
-                Pet("Fluffy", "", 0, 0),
-                Pet("Fluffy", "", 0, 0),
-                Pet("Fluffy", "", 0, 0),
-                Pet("Fluffy", "", 0, 0)
-            ), padding = androidx.compose.ui.Modifier.Companion.padding()
-        )
     }
 }
