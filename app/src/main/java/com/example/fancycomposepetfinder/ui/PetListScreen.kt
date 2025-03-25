@@ -23,12 +23,21 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.res.painterResource
 import com.example.fancycomposepetfinder.R
 import androidx.compose.foundation.layout.size
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 
 
 @Composable
-fun PetListScreen(pets: List<Pet>, padding: Modifier) {
+fun PetListScreen(petViewModel: PetViewModel, padding: Modifier) {
+    val pets by petViewModel.pets.collectAsState()
+
+    LaunchedEffect(Unit) {
+        petViewModel.loadRandomPets()
+    }
+
     LazyColumn(modifier = Modifier.padding(8.dp, 48.dp, 8.dp, 8.dp)) {
-        items(pets) { pet ->
+        items(pets) { pet: Pet ->
             PetListItem(pet)
         }
     }
@@ -47,7 +56,7 @@ fun PetListItem(pet: Pet) {
         ) {
             AsyncImage(
                 model = pet.url,
-                contentDescription = pet.id,
+                contentDescription = "Pet image with id ${ pet.id }",
                 modifier = Modifier
                     .size(80.dp)
                     .clip(RoundedCornerShape(8.dp)),
