@@ -57,8 +57,15 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    // coli
     implementation("io.coil-kt.coil3:coil-compose:3.1.0")
+    // retrofit
     implementation ("com.squareup.retrofit2:retrofit:2.11.0")
-
+    // gson converter
+    implementation ("com.squareup.retrofit2:converter-gson:2.11.0")
+    // okhttp3 本體
+    implementation ("com.squareup.okhttp3:okhttp:4.12.0")
+    // log 攔截器（如果需要 log）
+    implementation ("com.squareup.okhttp3:logging-interceptor:4.12.0")
 
 }
